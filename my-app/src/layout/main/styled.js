@@ -16,22 +16,26 @@ export const Label = styled.label`
 `;
 
 export const Selector = styled.select`
-  font-size: 1rem;
   border: 1px solid #cecece;
+  font-size: 1rem;
   height: 3vh; // é correto usar vh?
   padding: 5px; //??
 `;
 
 export const Options = styled.option``;
 
+export const Paragraph = styled.p`
+  text-align: left;
+`;
+
 export const Separator = styled.hr`
-  margin: 0;
   border: none;
+  margin: 0;
 `;
 
 export const Content = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 1vw; // pode usar em vw?
+  grid-template-columns: repeat(3, 1fr);
   padding-left: 1vw; // é correto?
 `;

@@ -10,6 +10,7 @@ function App() {
   const [isOnOrder, setIsOnOrder] = useState(false);
   const [products, setProducts] = useState(Data);
   const [order, setOrder] = useState("default");
+  const [name, setName] = useState("")
 
   const filterProducts = () => {
     if (category === "todos") {
@@ -20,6 +21,12 @@ function App() {
     if (category && category.length > 0) {
       setProducts(Data.filter((e) => e.category === category));
     }
+
+    if (name && name.length > 0) {
+      setName(Data.filter((e) => e.name.includes(name)));
+    }
+
+
 
     setOrder("default");
   };
@@ -43,6 +50,11 @@ function App() {
     setProducts(productsCopy);
   };
 
+  const quantityProducts = () =>{
+    return products.length  
+  }
+  console.log(quantityProducts())
+
   if (isOnFilter) {
     filterProducts();
     setIsOnFilter(false);
@@ -55,12 +67,13 @@ function App() {
 
   return (
     <div>
-      <Header setIsOnFilter={setIsOnFilter} setCategory={setCategory} />
+      <Header setIsOnFilter={setIsOnFilter} setCategory={setCategory} name={name} setName={setName} />
       <Main
         products={products}
         setIsOnOrder={setIsOnOrder}
         order={order}
         setOrder={setOrder}
+        quantityProducts={quantityProducts}
       />
       <Footer />
     </div>

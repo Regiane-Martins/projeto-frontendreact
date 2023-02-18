@@ -12,11 +12,11 @@ import {
 } from "./styled";
 
 function MainHeader(props) {
-  const { setIsOnFilter, setCategory } = props;
+  const { setIsOnFilter, setCategory, name, setName } = props;
 
-  function teste(e) {
+  function selectedProducts(e, setState) {
     e.preventDefault();
-    setCategory(e.target.value);
+    setState(e.target.value);
     setIsOnFilter(true);
   }
   return (
@@ -29,39 +29,45 @@ function MainHeader(props) {
           />
           <List>
             <ItemList>
-              <Button value="brinquedos" onClick={(e) => teste(e)}>
+              <Button value="brinquedos" onClick={(e) => selectedProducts(e, setCategory)}>
                 Brinquedos
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="calçados" onClick={(e) => teste(e)}>
+              <Button value="calçados" onClick={(e) => selectedProducts(e, setCategory)}>
                 Calçados
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="diario" onClick={(e) => teste(e)}>
+              <Button value="diario" onClick={(e) => selectedProducts(e, setCategory)}>
                 Dia a Dia
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="escolar" onClick={(e) => teste(e)}>
+              <Button value="escolar" onClick={(e) => selectedProducts(e, setCategory)}>
                 Escolar
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="sono" onClick={(e) => teste(e)}>
+              <Button value="sono" onClick={(e) => selectedProducts(e, setCategory)}>
                 Sono
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="todos" onClick={(e) => teste(e)}>
+              <Button value="todos" onClick={(e) => selectedProducts(e, setCategory)}>
                 Todos
               </Button>
             </ItemList>
           </List>
           <Section>
-            <input type="search" placeholder="Buscar" />
-            <a href="/">
+            <input
+              type="text"
+              name="name"
+              placeholder="Buscar"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <a href="/" >
               <Basket
                 src={process.env.PUBLIC_URL + "/img/cart2.svg"}
                 alt="carrinho de compras"

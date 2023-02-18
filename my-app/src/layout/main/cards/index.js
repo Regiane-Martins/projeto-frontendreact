@@ -1,4 +1,5 @@
 import { Title } from "../../footer/main-footer/assistant/styled";
+import { Paragraph } from "../styled";
 import { Button, Content, Image } from "./styled";
 
 function Card(props) {

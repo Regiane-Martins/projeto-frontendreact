@@ -6,6 +6,7 @@ import {
   FilterContent,
   Label,
   Options,
+  Paragraph,
   Section,
   Selector,
   Separator,
@@ -13,7 +14,7 @@ import {
 import { useState } from "react";
 
 function Main(props) {
-  const { products, setIsOnOrder, order, setOrder } = props;
+  const { products, setIsOnOrder, order, setOrder, quantityProducts } = props;
 
   return (
     <Container>
@@ -31,6 +32,7 @@ function Main(props) {
           <Options value={"max"}>Maior preço</Options>
         </Selector>
       </FilterContent>
+      <Paragraph>Quantidade de produtos: {quantityProducts()}</Paragraph>
       <Section>
         <NavBar />
         <Separator />

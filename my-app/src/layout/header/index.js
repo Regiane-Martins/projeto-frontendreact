@@ -4,11 +4,11 @@ import SubHeader from "./sub-header";
 
 
 function Header(props) {
-  const { setIsOnFilter, setCategory } = props;
+  const { setIsOnFilter, setCategory, name, setName } = props;
   return (
     <HeaderContent>
       <SubHeader />
-      <MainHeader setCategory={setCategory} setIsOnFilter={setIsOnFilter} />
+      <MainHeader setCategory={setCategory} setIsOnFilter={setIsOnFilter} name={name} setName={setName} />
     </HeaderContent>
   );
 }
