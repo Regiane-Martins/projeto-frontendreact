@@ -2,16 +2,20 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   align-items: center;
-  border: 1px solid #000;
+  border: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
   text-align: center;
+
+  :hover {
+    border-radius: 5px;
+    box-shadow: 0px 0px 1em #888;
+  }
 `;
 
 export const Image = styled.img`
-  height: 100%;
-  padding: 12px 0;
+  padding-top: 1rem;
   text-align: center;
   width: 70%;
 `;

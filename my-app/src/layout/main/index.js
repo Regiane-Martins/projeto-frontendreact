@@ -3,6 +3,7 @@ import Card from "./cards";
 import NavBar from "./nav-bar";
 import {
   Content,
+  DivCard,
   FilterContent,
   Label,
   Options,
@@ -32,19 +33,22 @@ function Main(props) {
           <Options value={"max"}>Maior preço</Options>
         </Selector>
       </FilterContent>
-      <Paragraph>Quantidade de produtos: {quantityProducts()}</Paragraph>
       <Section>
         <NavBar />
-        <Separator />
         <Content>
-          {products.map((item) => (
-            <Card
-              key={item.id}
-              name={item.name}
-              price={item.price}
-              image={item.image}
-            />
-          ))}
+          <div>
+            <Paragraph>Quantidade de produtos: {quantityProducts()}</Paragraph>
+          </div>
+          <DivCard>
+            {products.map((item) => (
+              <Card
+                key={item.id}
+                name={item.name}
+                price={item.price}
+                image={item.image}
+              />
+            ))}
+          </DivCard>
         </Content>
       </Section>
     </Container>

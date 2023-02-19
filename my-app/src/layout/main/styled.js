@@ -2,8 +2,10 @@ import styled from "styled-components";
 
 export const Section = styled.div`
   display: flex;
-  flex: 1;
+  flex: 1 1 66.66%;
   padding: 40px 0;
+  width: 100%;
+  gap: 15px;
 `;
 
 export const FilterContent = styled.div`
@@ -12,30 +14,27 @@ export const FilterContent = styled.div`
 
 export const Label = styled.label`
   font-weight: 700;
-  margin-right: 0.5vw;
+  margin-right: 10px;
 `;
 
 export const Selector = styled.select`
   border: 1px solid #cecece;
   font-size: 1rem;
-  height: 3vh; // é correto usar vh?
-  padding: 5px; //??
+  padding: 5px;
 `;
 
 export const Options = styled.option``;
 
 export const Paragraph = styled.p`
   text-align: left;
+  padding-bottom: 20px;
 `;
 
-export const Separator = styled.hr`
-  border: none;
-  margin: 0;
-`;
+export const Content = styled.div``;
 
-export const Content = styled.div`
+export const DivCard = styled.div`
   display: grid;
-  gap: 1vw; // pode usar em vw?
+  gap: 20px 15px;
   grid-template-columns: repeat(3, 1fr);
-  padding-left: 1vw; // é correto?
+  padding-left: 20px;
 `;
