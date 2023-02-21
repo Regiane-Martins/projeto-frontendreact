@@ -14,11 +14,11 @@ import {
 function MainHeader(props) {
   const { setIsOnFilter, setCategory, name, setName } = props;
 
-  function selectedProducts(e, setState) {
-    e.preventDefault();
-    setState(e.target.value);
+  function selectedProducts(value) {
+    setCategory(value);
     setIsOnFilter(true);
   }
+
   return (
     <Nav>
       <Container>
@@ -29,32 +29,50 @@ function MainHeader(props) {
           />
           <List>
             <ItemList>
-              <Button value="brinquedos" onClick={(e) => selectedProducts(e, setCategory)}>
+              <Button
+                value="brinquedos"
+                onClick={(e) => selectedProducts(e.target.value)}
+              >
                 Brinquedos
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="calçados" onClick={(e) => selectedProducts(e, setCategory)}>
+              <Button
+                value="calçados"
+                onClick={(e) => selectedProducts(e.target.value)}
+              >
                 Calçados
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="diario" onClick={(e) => selectedProducts(e, setCategory)}>
+              <Button
+                value="diario"
+                onClick={(e) => selectedProducts(e.target.value)}
+              >
                 Dia a Dia
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="escolar" onClick={(e) => selectedProducts(e, setCategory)}>
+              <Button
+                value="escolar"
+                onClick={(e) => selectedProducts(e.target.value)}
+              >
                 Escolar
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="sono" onClick={(e) => selectedProducts(e, setCategory)}>
+              <Button
+                value="sono"
+                onClick={(e) => selectedProducts(e.target.value)}
+              >
                 Sono
               </Button>
             </ItemList>
             <ItemList>
-              <Button value="todos" onClick={(e) => selectedProducts(e, setCategory)}>
+              <Button
+                value="todos"
+                onClick={(e) => selectedProducts(e.target.value)}
+              >
                 Todos
               </Button>
             </ItemList>
@@ -66,8 +84,9 @@ function MainHeader(props) {
               placeholder="Buscar"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && setIsOnFilter(true)}
             />
-            <a href="/" >
+            <a href="/">
               <Basket
                 src={process.env.PUBLIC_URL + "/img/cart2.svg"}
                 alt="carrinho de compras"

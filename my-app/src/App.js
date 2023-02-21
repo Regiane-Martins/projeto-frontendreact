@@ -10,24 +10,28 @@ function App() {
   const [isOnOrder, setIsOnOrder] = useState(false);
   const [products, setProducts] = useState(Data);
   const [order, setOrder] = useState("default");
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
+  const [maxPrice, setMaxPrice] = useState(0);
+  const [minPrice, setMinPrice] = useState(0);
 
   const filterProducts = () => {
-    if (category === "todos") {
-      setProducts(Data);
-      return;
+    let dataCopy = [...Data];
+
+    if (category !== "todos") {
+      dataCopy = Data.filter((e) => e.category === category);
     }
 
-    if (category && category.length > 0) {
-      setProducts(Data.filter((e) => e.category === category));
+    dataCopy = dataCopy.filter((e) =>
+      e.name.toLowerCase().includes(name.toLowerCase())
+    );
+
+    if (minPrice >= 0 && maxPrice > 0) {
+      dataCopy = dataCopy.filter(
+        (e) => e.price >= minPrice && e.price <= maxPrice
+      );
     }
 
-    if (name && name.length > 0) {
-      setName(Data.filter((e) => e.name.includes(name)));
-    }
-
-
-
+    setProducts(dataCopy);
     setOrder("default");
   };
 
@@ -50,10 +54,9 @@ function App() {
     setProducts(productsCopy);
   };
 
-  const quantityProducts = () =>{
-    return products.length  
-  }
-  console.log(quantityProducts())
+  const quantityProducts = () => {
+    return products.length;
+  };
 
   if (isOnFilter) {
     filterProducts();
@@ -67,13 +70,23 @@ function App() {
 
   return (
     <div>
-      <Header setIsOnFilter={setIsOnFilter} setCategory={setCategory} name={name} setName={setName} />
+      <Header
+        setIsOnFilter={setIsOnFilter}
+        setCategory={setCategory}
+        name={name}
+        setName={setName}
+      />
       <Main
         products={products}
         setIsOnOrder={setIsOnOrder}
+        setIsOnFilter={setIsOnFilter}
         order={order}
         setOrder={setOrder}
         quantityProducts={quantityProducts}
+        setMaxPrice={setMaxPrice}
+        setMinPrice={setMinPrice}
+        minPrice={minPrice}
+        maxPrice={maxPrice}
       />
       <Footer />
     </div>

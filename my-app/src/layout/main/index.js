@@ -15,7 +15,18 @@ import {
 import { useState } from "react";
 
 function Main(props) {
-  const { products, setIsOnOrder, order, setOrder, quantityProducts } = props;
+  const {
+    products,
+    setIsOnOrder,
+    order,
+    setOrder,
+    quantityProducts,
+    setMinPrice,
+    setMaxPrice,
+    setIsOnFilter,
+    maxPrice,
+    minPrice,
+  } = props;
 
   return (
     <Container>
@@ -34,7 +45,13 @@ function Main(props) {
         </Selector>
       </FilterContent>
       <Section>
-        <NavBar />
+        <NavBar
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          setMaxPrice={setMaxPrice}
+          setMinPrice={setMinPrice}
+          setIsOnFilter={setIsOnFilter}
+        />
         <Content>
           <div>
             <Paragraph>Quantidade de produtos: {quantityProducts()}</Paragraph>
