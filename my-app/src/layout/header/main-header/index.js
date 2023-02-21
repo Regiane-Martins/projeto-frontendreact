@@ -1,9 +1,8 @@
 import { Container } from "../../container";
 import {
   Basket,
-  Button,
+  Link,
   ItemList,
-  Links,
   List,
   LogoIcon,
   Nav,
@@ -12,7 +11,7 @@ import {
 } from "./styled";
 
 function MainHeader(props) {
-  const { setIsOnFilter, setCategory, name, setName } = props;
+  const { setIsOnFilter, category, setCategory, name, setName } = props;
 
   function selectedProducts(value) {
     setCategory(value);
@@ -29,52 +28,52 @@ function MainHeader(props) {
           />
           <List>
             <ItemList>
-              <Button
-                value="brinquedos"
-                onClick={(e) => selectedProducts(e.target.value)}
+              <Link
+                active={category === "brinquedos"}
+                onClick={(e) => selectedProducts("brinquedos")}
               >
                 Brinquedos
-              </Button>
+              </Link>
             </ItemList>
             <ItemList>
-              <Button
-                value="calçados"
-                onClick={(e) => selectedProducts(e.target.value)}
+              <Link
+                active={category === "calçados"}
+                onClick={(e) => selectedProducts("calçados")}
               >
                 Calçados
-              </Button>
+              </Link>
             </ItemList>
             <ItemList>
-              <Button
-                value="diario"
-                onClick={(e) => selectedProducts(e.target.value)}
+              <Link
+                active={category === "diario"}
+                onClick={(e) => selectedProducts("diario")}
               >
                 Dia a Dia
-              </Button>
+              </Link>
             </ItemList>
             <ItemList>
-              <Button
-                value="escolar"
-                onClick={(e) => selectedProducts(e.target.value)}
+              <Link
+                active={category === "escolar"}
+                onClick={(e) => selectedProducts("escolar")}
               >
                 Escolar
-              </Button>
+              </Link>
             </ItemList>
             <ItemList>
-              <Button
-                value="sono"
-                onClick={(e) => selectedProducts(e.target.value)}
+              <Link
+                active={category === "sono"}
+                onClick={(e) => selectedProducts("sono")}
               >
                 Sono
-              </Button>
+              </Link>
             </ItemList>
             <ItemList>
-              <Button
-                value="todos"
-                onClick={(e) => selectedProducts(e.target.value)}
+              <Link
+                active={category === "todos"}
+                onClick={(e) => selectedProducts("todos")}
               >
                 Todos
-              </Button>
+              </Link>
             </ItemList>
           </List>
           <Section>

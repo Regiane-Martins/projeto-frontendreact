@@ -43,13 +43,15 @@ export const List = styled.ul`
 
 export const ItemList = styled.li``;
 
-export const Button = styled.button`
-  color: #000;
+export const Link = styled.a`
   background-color: transparent;
   border: none;
+  color: #000;
+  cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
-  cursor: pointer;
+
+  ${({ active }) => active && `border-bottom: 1px solid;`}
 `;
 
 export const Section = styled.div`

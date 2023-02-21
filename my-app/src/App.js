@@ -5,7 +5,7 @@ import { Data } from "./data";
 import { useState } from "react";
 
 function App() {
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("todos");
   const [isOnFilter, setIsOnFilter] = useState(false);
   const [isOnOrder, setIsOnOrder] = useState(false);
   const [products, setProducts] = useState(Data);
@@ -72,6 +72,7 @@ function App() {
     <div>
       <Header
         setIsOnFilter={setIsOnFilter}
+        category={category}
         setCategory={setCategory}
         name={name}
         setName={setName}
