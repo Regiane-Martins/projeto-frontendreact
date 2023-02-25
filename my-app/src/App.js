@@ -7,6 +7,7 @@ import { useState } from "react";
 function App() {
   const [category, setCategory] = useState("todos");
   const [isOnFilter, setIsOnFilter] = useState(false);
+  const [isOnCart, setIsOnCart] = useState(false)
   const [isOnOrder, setIsOnOrder] = useState(false);
   const [products, setProducts] = useState(Data);
   const [order, setOrder] = useState("default");
@@ -76,6 +77,8 @@ function App() {
         setCategory={setCategory}
         name={name}
         setName={setName}
+        isOnCart={isOnCart}
+        setIsOnCart={setIsOnCart}
       />
       <Main
         products={products}

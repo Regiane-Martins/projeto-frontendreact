@@ -1,3 +1,4 @@
+import Cart from "../../cart";
 import { Container } from "../../container";
 import {
   Basket,
@@ -11,7 +12,7 @@ import {
 } from "./styled";
 
 function MainHeader(props) {
-  const { setIsOnFilter, category, setCategory, name, setName } = props;
+  const { setIsOnFilter, category, setCategory, name, setName, setIsOnCart, isOnCart } = props;
 
   function selectedProducts(value) {
     setCategory(value);
@@ -88,9 +89,11 @@ function MainHeader(props) {
             <a href="/">
               <Basket
                 src={process.env.PUBLIC_URL + "/img/cart2.svg"}
-                alt="carrinho de compras"
+                alt="carrinho de compras" onClick={(e)=> {e.preventDefault()
+                  setIsOnCart(true)}}
               />
             </a>
+            {isOnCart?<Cart setIsOnCart={setIsOnCart}/>:""}
           </Section>
         </NavContent>
       </Container>
