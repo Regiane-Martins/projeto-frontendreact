@@ -9,6 +9,7 @@ import {
   Nav,
   NavContent,
   Section,
+  InputShearch,
 } from "./styled";
 
 function MainHeader(props) {
@@ -78,7 +79,7 @@ function MainHeader(props) {
             </ItemList>
           </List>
           <Section>
-            <input
+            <InputShearch
               type="text"
               name="name"
               placeholder="Buscar"

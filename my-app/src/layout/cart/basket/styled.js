@@ -13,12 +13,12 @@ export const Title = styled.h2`
 `;
 
 export const Aside = styled.aside`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 3fr 1fr 1fr;
 `;
 
-export const Div = styled.div`
-`
+export const Div = styled.div``;
 
 export const SubTitle = styled.p`
   color: #4a4a4a;
@@ -27,15 +27,20 @@ export const SubTitle = styled.p`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 3fr 1fr 1fr;
 `;
 
 export const DivAmount = styled.div`
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 50px;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 5px;
+  width: 80%;
 `;
 
 export const Image = styled.img`
@@ -43,8 +48,9 @@ export const Image = styled.img`
 `;
 
 export const InputBasket = styled.input`
-  width: 80px;
+  background: none;
+  border: none;
   text-align: center;
-  border: 1px solid #cecece;
-  border-radius: 4px;
+  outline: 0;
+  width: 50px;
 `;

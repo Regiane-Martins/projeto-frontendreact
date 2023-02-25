@@ -1,6 +1,6 @@
 import { Container } from "../../container";
 import {
-    Aside,
+  Aside,
   Content,
   Div,
   DivAmount,
@@ -18,11 +18,9 @@ function Basket() {
       <Container>
         <Title>minha cesta</Title>
         <Aside>
-            <Div>
-        <SubTitle>produto</SubTitle>
-        </Div>
-        <SubTitle>qtd.</SubTitle>
-        <SubTitle>preço</SubTitle>
+          <SubTitle>produto</SubTitle>
+          <SubTitle>qtd.</SubTitle>
+          <SubTitle>preço</SubTitle>
         </Aside>
         <hr />
         <Content>

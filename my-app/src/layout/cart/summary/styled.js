@@ -8,16 +8,15 @@ export const Aside = styled.aside`
   background-color: #f7f7f7;
   width: 1 1 33.33%;
   min-width: 300px;
-  padding: 16px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
 `;
 
 export const Separator = styled.hr`
-    width: 100%;
-`
+  width: 100%;
+`;
 
 export const Title = styled.h2`
   color: #4a4a4a;
@@ -37,9 +36,9 @@ export const SubTitle = styled.p`
 `;
 
 export const Total = styled.p`
-    font-weight: 700;
-    padding: 16px 0;
-`
+  font-weight: 700;
+  padding: 16px 0;
+`;
 
 export const Button = styled.button`
   background-color: #757575;
@@ -51,17 +50,17 @@ export const Button = styled.button`
   padding: 10px;
   margin: 20px 0;
   text-transform: lowercase;
-  :hover{
+  :hover {
     transform: scale(1.1);
   }
 `;
 
 export const Link = styled.a`
-    color: #4a4a4a;
-    text-align: center;
-    text-decoration: none;
-    text-transform: lowercase;
-    :hover{
-        text-decoration: underline;
-    }
-`
+  color: #4a4a4a;
+  text-align: center;
+  text-decoration: none;
+  text-transform: lowercase;
+  :hover {
+    text-decoration: underline;
+  }
+`;
