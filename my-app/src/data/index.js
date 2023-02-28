@@ -25,7 +25,7 @@ export const Data = [
 
   {
     id: 4,
-    name: "Kit Escolar Completo",
+    name: "Kit Escolar Astronauta",
     price: 389,
     image: `https://uploaddeimagens.com.br/images/004/353/695/original/br-11134201-22120-6j50399ukkkvc6.jpg?1676393871`,
     category: "escolar",

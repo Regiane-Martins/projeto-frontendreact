@@ -10,7 +10,6 @@ import {
   Paragraph,
   Section,
   Selector,
-  Separator,
 } from "./styled";
 import { useState } from "react";
 
@@ -26,6 +25,8 @@ function Main(props) {
     setIsOnFilter,
     maxPrice,
     minPrice,
+    cartItems, 
+    setCartItems
   } = props;
 
   return (
@@ -63,6 +64,10 @@ function Main(props) {
                 name={item.name}
                 price={item.price}
                 image={item.image}
+                id={item.id}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+                products={products}
               />
             ))}
           </DivCard>

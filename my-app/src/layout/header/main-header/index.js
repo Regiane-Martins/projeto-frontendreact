@@ -13,7 +13,8 @@ import {
 } from "./styled";
 
 function MainHeader(props) {
-  const { setIsOnFilter, category, setCategory, name, setName, setIsOnCart, isOnCart } = props;
+  const { setIsOnFilter, category, setCategory, name, setName, changeScreen } =
+    props;
 
   function selectedProducts(value) {
     setCategory(value);
@@ -87,14 +88,18 @@ function MainHeader(props) {
               onChange={(e) => setName(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && setIsOnFilter(true)}
             />
-            <a href="/">
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                changeScreen("cart");
+              }}
+            >
               <Basket
                 src={process.env.PUBLIC_URL + "/img/cart2.svg"}
-                alt="carrinho de compras" onClick={(e)=> {e.preventDefault()
-                  setIsOnCart(true)}}
+                alt="carrinho de compras"
               />
             </a>
-            {isOnCart?<Cart setIsOnCart={setIsOnCart}/>:""}
           </Section>
         </NavContent>
       </Container>

@@ -30,27 +30,46 @@ export const Content = styled.div`
   display: grid;
   gap: 2rem;
   grid-template-columns: 3fr 1fr 1fr;
+  padding-bottom: 2rem;
 `;
 
 export const DivAmount = styled.div`
   align-items: center;
-  background-color: #f7f7f7;
+  background-color: #cecece;
   border-radius: 50px;
   display: flex;
-  gap: 0.5rem;
+  gap: 2rem;
   justify-content: center;
   padding: 5px;
-  width: 80%;
+  height: 25px;
+  width: 90px;
 `;
-
-export const Image = styled.img`
-  width: 14px;
-`;
-
-export const InputBasket = styled.input`
-  background: none;
+export const AddButton = styled.button`
+  background: url(/img/add.png) transparent no-repeat;
+  background-size: contain;
   border: none;
-  text-align: center;
+  cursor: pointer;
   outline: 0;
-  width: 50px;
+  height: 18px;
+  width: 18px;
+`;
+
+export const DecreaseButton = styled.button`
+  background: url(/img/remove.svg) transparent no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  outline: 0;
+  height: 18px;
+  width: 18px;
+`;
+
+export const Remove = styled.a`
+  color: #4a4a4a;
+  font-size: 0.85rem;
+  text-decoration: none;
+  text-transform: lowercase;
+  :hover {
+    text-decoration: underline;
+  }
 `;

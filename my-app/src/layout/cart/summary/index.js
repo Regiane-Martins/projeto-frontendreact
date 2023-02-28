@@ -12,7 +12,7 @@ import {
 } from "./styled";
 
 function Summary(props) {
-    const {setIsOnCart} = props
+  const { setIsOnCart, changeScreen } = props;
   return (
     <Section>
       <Aside>
@@ -28,8 +28,15 @@ function Summary(props) {
         </ContentPrice>
         <Separator />
         <Button>Continuar</Button>
-        <Link href="/" onClick={(e)=> {e.preventDefault()
-                  setIsOnCart(false)}}>Continuar comprando</Link>
+        <Link
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            changeScreen("default");
+          }}
+        >
+          Continuar comprando
+        </Link>
       </Aside>
     </Section>
   );

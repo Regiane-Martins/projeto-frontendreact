@@ -1,12 +1,11 @@
 import { Container } from "../../container";
 import {
+  AddButton,
   Aside,
   Content,
-  Div,
+  DecreaseButton,
   DivAmount,
-  Image,
-  Input,
-  InputBasket,
+  Remove,
   Section,
   SubTitle,
   Title,
@@ -30,10 +29,9 @@ function Basket() {
           </div>
           <div>
             <DivAmount>
-              <Image src={process.env.PUBLIC_URL + "/img/remove.svg"} />
-              <InputBasket type="tel" min="1" />
-              <Image src={process.env.PUBLIC_URL + "/img/add.svg"} />
+              <DecreaseButton /> <AddButton />
             </DivAmount>
+            <Remove href="/">Remover</Remove>
           </div>
           <div>R$ 5.000,00</div>
         </Content>
