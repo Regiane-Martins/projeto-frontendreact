@@ -5,35 +5,42 @@ import {
   Content,
   DecreaseButton,
   DivAmount,
+  Price,
   Remove,
   Section,
+  Separator,
   SubTitle,
   Title,
+  TitlePrimary,
 } from "./styled";
 
-function Basket() {
+function Basket(props) {
+  const { cartItems } = props;
   return (
     <Section>
       <Container>
         <Title>minha cesta</Title>
         <Aside>
-          <SubTitle>produto</SubTitle>
+          <TitlePrimary>
+            <SubTitle>produto</SubTitle>
+          </TitlePrimary>
           <SubTitle>qtd.</SubTitle>
           <SubTitle>preço</SubTitle>
         </Aside>
         <hr />
         <Content>
           <div>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+            <img src={cartItems.image} />
+            <h3>{cartItems.name}</h3>
           </div>
-          <div>
+          <Separator>
             <DivAmount>
-              <DecreaseButton /> <AddButton />
+              <DecreaseButton />
+              {cartItems.amount} <AddButton />
             </DivAmount>
             <Remove href="/">Remover</Remove>
-          </div>
-          <div>R$ 5.000,00</div>
+          </Separator>
+          <Price>R$ {cartItems.price},00</Price>
         </Content>
         <hr />
       </Container>

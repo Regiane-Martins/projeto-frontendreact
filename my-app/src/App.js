@@ -104,7 +104,7 @@ function App() {
           setCartItems={setCartItems}
         />
       ) : (
-        <Cart changeScreen={changeScreen}/>
+        <Cart changeScreen={changeScreen} cartItems={cartItems}/>
       )}
       <Footer />
     </div>

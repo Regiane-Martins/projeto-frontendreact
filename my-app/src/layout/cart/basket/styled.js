@@ -16,6 +16,11 @@ export const Aside = styled.aside`
   display: grid;
   gap: 2rem;
   grid-template-columns: 3fr 1fr 1fr;
+  text-align: center;
+`;
+
+export const TitlePrimary = styled.div`
+  text-align: left;
 `;
 
 export const Div = styled.div``;
@@ -33,6 +38,10 @@ export const Content = styled.div`
   padding-bottom: 2rem;
 `;
 
+export const Separator = styled.div`
+  text-align: center;
+`;
+
 export const DivAmount = styled.div`
   align-items: center;
   background-color: #cecece;
@@ -40,12 +49,13 @@ export const DivAmount = styled.div`
   display: flex;
   gap: 2rem;
   justify-content: center;
+  margin-bottom: 0.5rem;
   padding: 5px;
   height: 25px;
   width: 90px;
 `;
 export const AddButton = styled.button`
-  background: url(/img/add.png) transparent no-repeat;
+  background: url(/img/increase.svg) transparent no-repeat;
   background-size: contain;
   border: none;
   cursor: pointer;
@@ -72,4 +82,8 @@ export const Remove = styled.a`
   :hover {
     text-decoration: underline;
   }
+`;
+
+export const Price = styled.div`
+  text-align: center;
 `;
