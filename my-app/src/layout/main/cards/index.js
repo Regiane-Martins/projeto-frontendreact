@@ -5,18 +5,39 @@ import { Button, Content, Image } from "./styled";
 function Card(props) {
   const { name, image, price, id, cartItems, setCartItems } = props;
 
-  function addItemToCart(product) {
-    const copyCartItems = [...cartItems]
+  function addItemToCart(props) {
+    const { id, name, price, image } = props;
 
-    
+    const copyCartItems = [...cartItems];
+    let result = [];
+    let newCart = [];
 
+    if (copyCartItems.length) {
+      result = copyCartItems.filter((e) => e.id === id);
+    }
 
+    if (!result.length) {
+      newCart = [
+        ...cartItems,
+        {
+          id: id,
+          name: name,
+          image: image,
+          price: price,
+          amount: 1,
+        },
+      ];
+    } else {
+      newCart = copyCartItems.map((item) => {
+        if (item.id === id) {
+          item.amount++;
+        }
+        return item;
+      });
+    }
 
-
-
-
-
-
+    setCartItems(newCart);
+    console.table(newCart);
   }
 
   return (
@@ -31,6 +52,7 @@ function Card(props) {
               id,
               image,
               price,
+              name,
             })
           }
         >
