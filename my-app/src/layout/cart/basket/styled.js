@@ -23,6 +23,12 @@ export const TitlePrimary = styled.div`
   text-align: left;
 `;
 
+export const Description = styled.h3`
+  color: #4a4a4a;
+`;
+
+export const Division =styled.hr``
+
 export const Div = styled.div``;
 
 export const SubTitle = styled.p`
@@ -32,14 +38,25 @@ export const SubTitle = styled.p`
 `;
 
 export const Content = styled.div`
+  align-items: center;
   display: grid;
   gap: 2rem;
   grid-template-columns: 3fr 1fr 1fr;
-  padding-bottom: 2rem;
+  padding: 1rem 0;
 `;
 
 export const Separator = styled.div`
   text-align: center;
+`;
+
+export const Products = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+`;
+
+export const Image = styled.img`
+  width: 60px;
 `;
 
 export const DivAmount = styled.div`
@@ -47,7 +64,7 @@ export const DivAmount = styled.div`
   background-color: #cecece;
   border-radius: 50px;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
   margin-bottom: 0.5rem;
   padding: 5px;
@@ -84,6 +101,4 @@ export const Remove = styled.a`
   }
 `;
 
-export const Price = styled.div`
-  text-align: center;
-`;
+export const Price = styled.div``;

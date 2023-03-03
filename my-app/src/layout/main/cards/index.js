@@ -37,7 +37,6 @@ function Card(props) {
     }
 
     setCartItems(newCart);
-    console.table(newCart);
   }
 
   return (

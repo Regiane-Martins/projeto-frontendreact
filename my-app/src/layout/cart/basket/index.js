@@ -1,50 +1,56 @@
 import { Container } from "../../container";
-import {
-  AddButton,
-  Aside,
-  Content,
-  DecreaseButton,
-  DivAmount,
-  Price,
-  Remove,
-  Section,
-  Separator,
-  SubTitle,
-  Title,
-  TitlePrimary,
-} from "./styled";
+import * as s from './styled'
+
 
 function Basket(props) {
   const { cartItems } = props;
+
+  const handlerMinus = ()=>{
+    
+  }
+
+  const renderItem = (e)=>{
+    console.log(e)
+    return(
+      <s.Div>
+        <s.Content>
+          <s.Products>
+            <s.Image src={e.image} />
+            <s.Description>{e.name}</s.Description>
+          </s.Products>
+          <s.Separator>
+            <s.DivAmount>
+              <s.DecreaseButton />
+              {e.amount} <s.AddButton />
+            </s.DivAmount>
+            <s.Remove href="/">Remover</s.Remove>
+          </s.Separator>
+          <s.Price>R$ {e.price},00</s.Price>
+        </s.Content>
+        <s.Division />
+      </s.Div>
+    )
+  }
+
+
   return (
-    <Section>
+    <s.Section>
       <Container>
-        <Title>minha cesta</Title>
-        <Aside>
-          <TitlePrimary>
-            <SubTitle>produto</SubTitle>
-          </TitlePrimary>
-          <SubTitle>qtd.</SubTitle>
-          <SubTitle>preço</SubTitle>
-        </Aside>
-        <hr />
-        <Content>
-          <div>
-            <img src={cartItems.image} />
-            <h3>{cartItems.name}</h3>
-          </div>
-          <Separator>
-            <DivAmount>
-              <DecreaseButton />
-              {cartItems.amount} <AddButton />
-            </DivAmount>
-            <Remove href="/">Remover</Remove>
-          </Separator>
-          <Price>R$ {cartItems.price},00</Price>
-        </Content>
-        <hr />
+      <s.Title>minha cesta</s.Title>
+      <s.Aside>
+          <s.TitlePrimary>
+            <s.SubTitle>produto</s.SubTitle>
+          </s.TitlePrimary>
+          <s.SubTitle>qtd.</s.SubTitle>
+          <s.SubTitle>preço</s.SubTitle>
+        </s.Aside>
+        <s.Division />
+        {
+          cartItems.map((e)=> renderItem(e
+            ))
+        }
       </Container>
-    </Section>
+    </s.Section>
   );
 }
 
