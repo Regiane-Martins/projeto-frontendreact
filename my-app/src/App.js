@@ -17,6 +17,7 @@ function App() {
   const [maxPrice, setMaxPrice] = useState(0);
   const [minPrice, setMinPrice] = useState(0);
   const [screen, setScreen] = useState("default");
+  const [amount, setAmount] = useState(1)
 
   const filterProducts = () => {
     let dataCopy = [...Data];
@@ -104,7 +105,7 @@ function App() {
           setCartItems={setCartItems}
         />
       ) : (
-        <Cart changeScreen={changeScreen} cartItems={cartItems}/>
+        <Cart changeScreen={changeScreen} cartItems={cartItems} setCartItems={setCartItems} amount={amount} setAmount={setAmount}/>
       )}
       <Footer />
     </div>

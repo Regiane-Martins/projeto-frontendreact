@@ -39,6 +39,8 @@ function Card(props) {
     setCartItems(newCart);
   }
 
+  
+
   return (
     <>
       <Content>
