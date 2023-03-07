@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  display: flex;
   flex: 1 1 66.66%;
 `;
 
@@ -15,7 +14,7 @@ export const Aside = styled.aside`
   display: grid;
   gap: 2rem;
   grid-template-columns: 3fr 1fr 1fr;
-  text-align: center;
+  /* text-align: center; */
 `;
 
 export const TitlePrimary = styled.div`
@@ -26,7 +25,9 @@ export const Description = styled.h3`
   color: #4a4a4a;
 `;
 
-export const Division = styled.hr``;
+export const Division = styled.hr`
+  width: 100%;
+`;
 
 export const Div = styled.div``;
 
@@ -34,6 +35,7 @@ export const SubTitle = styled.p`
   color: #4a4a4a;
   font-weight: 700;
   padding-bottom: 20px;
+  margin-left: 1rem;
 `;
 
 export const Content = styled.div`
@@ -44,9 +46,7 @@ export const Content = styled.div`
   padding: 1rem 0;
 `;
 
-export const Separator = styled.div`
-  text-align: center;
-`;
+export const Separator = styled.div``;
 
 export const Products = styled.div`
   display: flex;
@@ -93,6 +93,7 @@ export const DecreaseButton = styled.button`
 export const Remove = styled.a`
   color: #4a4a4a;
   font-size: 0.85rem;
+  margin-left: 1rem;
   text-decoration: none;
   text-transform: lowercase;
   :hover {
