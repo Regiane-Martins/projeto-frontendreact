@@ -30,6 +30,8 @@ export const Paragraph = styled.p`
   padding-bottom: 20px;
 `;
 
+export const Div = styled.div``
+
 export const Content = styled.div``;
 
 export const DivCard = styled.div`

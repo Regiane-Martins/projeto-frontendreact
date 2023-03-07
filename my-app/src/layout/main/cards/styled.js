@@ -22,6 +22,8 @@ export const Image = styled.img`
 
 export const Title = styled.h3``;
 
+export const SubTitlePrice = styled.p``
+
 export const Button = styled.button`
   background-color: #696969;
   border: 1px solid #cecece;

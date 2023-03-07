@@ -1,9 +1,8 @@
-import { Title } from "../../footer/main-footer/assistant/styled";
-import { Paragraph } from "../styled";
-import { Button, Content, Image } from "./styled";
+
+import * as s from "./styled";
 
 function Card(props) {
-  const { name, image, price, id, cartItems, setCartItems } = props;
+  const { name, image, price, id, cartItems, setCartItems, saveCart } = props;
 
   function addItemToCart(props) {
     const { id, name, price, image } = props;
@@ -37,17 +36,16 @@ function Card(props) {
     }
 
     setCartItems(newCart);
+    saveCart(newCart);
   }
-
-  
 
   return (
     <>
-      <Content>
-        <Image src={image} alt="" />
-        <h3>{name}</h3>
-        <p>R$ {price},00</p>
-        <Button
+      <s.Content>
+        <s.Image src={image} alt="" />
+        <s.Title>{name}</s.Title>
+        <s.SubTitlePrice>R$ {price},00</s.SubTitlePrice>
+        <s.Button
           onClick={() =>
             addItemToCart({
               id,
@@ -58,8 +56,8 @@ function Card(props) {
           }
         >
           Adicionar ao carrinho
-        </Button>
-      </Content>
+        </s.Button>
+      </s.Content>
     </>
   );
 }

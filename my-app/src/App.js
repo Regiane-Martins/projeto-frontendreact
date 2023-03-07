@@ -3,12 +3,12 @@ import Header from "./layout/header";
 import Main from "./layout/main";
 import { Data } from "./data";
 import { useState } from "react";
+import { useEffect } from "react";
 import Cart from "./layout/cart";
 
 function App() {
   const [category, setCategory] = useState("todos");
   const [isOnFilter, setIsOnFilter] = useState(false);
-  const [isOnCart, setIsOnCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [isOnOrder, setIsOnOrder] = useState(false);
   const [products, setProducts] = useState(Data);
@@ -17,7 +17,8 @@ function App() {
   const [maxPrice, setMaxPrice] = useState(0);
   const [minPrice, setMinPrice] = useState(0);
   const [screen, setScreen] = useState("default");
-  const [amount, setAmount] = useState(1)
+  const [totalItemCart, setTotalItemCart] = useState(0);
+  const [totalCart, setTotalCart] = useState(0);
 
   const filterProducts = () => {
     let dataCopy = [...Data];
@@ -77,6 +78,29 @@ function App() {
     setIsOnOrder(false);
   }
 
+  const saveCart = (cartItems) => {
+    localStorage.shoppingCart = JSON.stringify(cartItems);
+  };
+
+  useEffect(() => {
+    if (localStorage.shoppingCart) {
+      setCartItems(JSON.parse(localStorage.shoppingCart));
+    }
+  }, []);
+
+  useEffect(() => {
+    let totalItems = 0;
+    let totalValue = 0;
+    cartItems.forEach((e) => {
+      totalItems += e.amount;
+      totalValue += e.amount * e.price;
+    });
+    setTotalItemCart(totalItems);
+    setTotalCart(totalValue);
+  }, [cartItems]);
+
+  /* totalItems > 1 ? "produtos": "produto" */
+
   return (
     <div>
       <Header
@@ -85,8 +109,6 @@ function App() {
         setCategory={setCategory}
         name={name}
         setName={setName}
-        isOnCart={isOnCart}
-        setIsOnCart={setIsOnCart}
         changeScreen={changeScreen}
       />
       {screen === "default" ? (
@@ -103,9 +125,17 @@ function App() {
           maxPrice={maxPrice}
           cartItems={cartItems}
           setCartItems={setCartItems}
+          saveCart={saveCart}
         />
       ) : (
-        <Cart changeScreen={changeScreen} cartItems={cartItems} setCartItems={setCartItems} amount={amount} setAmount={setAmount}/>
+        <Cart
+          changeScreen={changeScreen}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+          totalItemCart={totalItemCart}
+          saveCart={saveCart}
+          totalCart={totalCart}
+        />
       )}
       <Footer />
     </div>

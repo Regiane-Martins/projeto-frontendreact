@@ -1,17 +1,7 @@
 import { Container } from "../container";
 import Card from "./cards";
 import NavBar from "./nav-bar";
-import {
-  Content,
-  DivCard,
-  FilterContent,
-  Label,
-  Options,
-  Paragraph,
-  Section,
-  Selector,
-} from "./styled";
-import { useState } from "react";
+import * as s from "./styled";
 
 function Main(props) {
   const {
@@ -25,27 +15,28 @@ function Main(props) {
     setIsOnFilter,
     maxPrice,
     minPrice,
-    cartItems, 
-    setCartItems
+    cartItems,
+    setCartItems,
+    saveCart,
   } = props;
 
   return (
     <Container>
-      <FilterContent>
-        <Label>Ordenar:</Label>
-        <Selector
+      <s.FilterContent>
+        <s.Label>Ordenar:</s.Label>
+        <s.Selector
           value={order}
           onChange={(e) => {
             setOrder(e.target.value);
             setIsOnOrder(true);
           }}
         >
-          <Options value={"default"}>Relevância</Options>
-          <Options value={"min"}>Menor preço</Options>
-          <Options value={"max"}>Maior preço</Options>
-        </Selector>
-      </FilterContent>
-      <Section>
+          <s.Options value={"default"}>Relevância</s.Options>
+          <s.Options value={"min"}>Menor preço</s.Options>
+          <s.Options value={"max"}>Maior preço</s.Options>
+        </s.Selector>
+      </s.FilterContent>
+      <s.Section>
         <NavBar
           minPrice={minPrice}
           maxPrice={maxPrice}
@@ -53,11 +44,13 @@ function Main(props) {
           setMinPrice={setMinPrice}
           setIsOnFilter={setIsOnFilter}
         />
-        <Content>
-          <div>
-            <Paragraph>Quantidade de produtos: {quantityProducts()}</Paragraph>
-          </div>
-          <DivCard>
+        <s.Content>
+          <s.Div>
+            <s.Paragraph>
+              Quantidade de produtos: {quantityProducts()}
+            </s.Paragraph>
+          </s.Div>
+          <s.DivCard>
             {products.map((item) => (
               <Card
                 key={item.id}
@@ -68,11 +61,12 @@ function Main(props) {
                 cartItems={cartItems}
                 setCartItems={setCartItems}
                 products={products}
+                saveCart={saveCart}
               />
             ))}
-          </DivCard>
-        </Content>
-      </Section>
+          </s.DivCard>
+        </s.Content>
+      </s.Section>
     </Container>
   );
 }

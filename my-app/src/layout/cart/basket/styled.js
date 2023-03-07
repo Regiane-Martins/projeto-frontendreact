@@ -27,7 +27,7 @@ export const Description = styled.h3`
   color: #4a4a4a;
 `;
 
-export const Division =styled.hr``
+export const Division = styled.hr``;
 
 export const Div = styled.div``;
 

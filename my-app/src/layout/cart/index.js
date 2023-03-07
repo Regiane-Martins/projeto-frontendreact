@@ -1,20 +1,36 @@
 import { Container } from "../container";
-import Footer from "../footer";
 import Basket from "./basket";
-import { Image, SectionContainer } from "./styled";
 import Summary from "./summary";
+import * as s from "./styled";
 
 function Cart(props) {
-  const { setIsOnCart, cart, setCart, changeScreen, cartItems, setCartItems, amount, setAmount } = props;
+  const {
+    cart,
+    setCart,
+    changeScreen,
+    cartItems,
+    setCartItems,
+    totalItemCart,
+    totalCart,
+    saveCart,
+  } = props;
   return (
     <Container>
-      <SectionContainer>
-        <Basket cart={cart} setCart={setCart} cartItems={cartItems} setCartItems={setCartItems} amount={amount} setAmount={setAmount} />
-        <Summary setIsOnCart={setIsOnCart} changeScreen={changeScreen} />
-      </SectionContainer>
+      <s.SectionContainer>
+        <Basket
+          cart={cart}
+          setCart={setCart}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+          saveCart={saveCart}
+        />
+        <Summary
+          changeScreen={changeScreen}
+          totalItemCart={totalItemCart}
+          totalCart={totalCart}
+        />
+      </s.SectionContainer>
     </Container>
-    
-    
   );
 }
 

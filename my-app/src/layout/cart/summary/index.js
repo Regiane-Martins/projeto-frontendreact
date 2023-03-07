@@ -1,34 +1,24 @@
-import { Container } from "../../container";
-import {
-  ContentPrice,
-  Aside,
-  SubTitle,
-  Title,
-  Section,
-  Button,
-  Total,
-  Separator,
-  Link,
-} from "./styled";
+import * as s from "./styled";
 
 function Summary(props) {
-  const { setIsOnCart, changeScreen } = props;
+  const { changeScreen, totalItemCart, totalCart,  } = props;
+
   return (
-    <Section>
-      <Aside>
-        <Title>resumo do pedido</Title>
-        <ContentPrice>
-          <SubTitle>1 produto</SubTitle>
-          <SubTitle>R$ 5.000,00</SubTitle>
-        </ContentPrice>
-        <Separator />
-        <ContentPrice>
-          <Total>total</Total>
-          <Total>R$ 5.000,00</Total>
-        </ContentPrice>
-        <Separator />
-        <Button>Continuar</Button>
-        <Link
+    <s.Section>
+      <s.Aside>
+        <s.Title>resumo do pedido</s.Title>
+        <s.ContentPrice>
+          <s.SubTitle>{totalItemCart > 1 ? `${totalItemCart} produtos`: `${totalItemCart} produto` }</s.SubTitle>
+          <s.SubTitle>R$ {totalCart},00</s.SubTitle>
+        </s.ContentPrice>
+        <s.Separator />
+        <s.ContentPrice>
+          <s.Total>total</s.Total>
+          <s.Total>R$ {totalCart},00</s.Total>
+        </s.ContentPrice>
+        <s.Separator />
+        <s.Button>Continuar</s.Button>
+        <s.Link
           href="#"
           onClick={(e) => {
             e.preventDefault();
@@ -36,9 +26,9 @@ function Summary(props) {
           }}
         >
           Continuar comprando
-        </Link>
-      </Aside>
-    </Section>
+        </s.Link>
+      </s.Aside>
+    </s.Section>
   );
 }
 

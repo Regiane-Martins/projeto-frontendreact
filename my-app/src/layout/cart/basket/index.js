@@ -2,7 +2,7 @@ import { Container } from "../../container";
 import * as s from "./styled";
 
 function Basket(props) {
-  const { cartItems, setCartItems } = props;
+  const { cartItems, setCartItems, saveCart } = props;
 
   const handlerMinus = (index) => {
     const copyCartItems = [...cartItems];
@@ -14,6 +14,7 @@ function Basket(props) {
     }
 
     setCartItems(copyCartItems);
+    saveCart(copyCartItems);
   };
 
   const handlerToAdd = (index) => {
@@ -24,11 +25,12 @@ function Basket(props) {
     }
 
     setCartItems(copyCartItems);
+    saveCart(copyCartItems);
   };
 
   const toRemove = (index) => {
     const copyCartItems = [...cartItems];
-    delete copyCartItems[index];
+    copyCartItems.splice(index, 1);
     setCartItems(copyCartItems);
   };
 
