@@ -30,6 +30,7 @@ function App() {
     dataCopy = dataCopy.filter((e) =>
       e.name.toLowerCase().includes(name.toLowerCase())
     );
+    
 
     if (minPrice >= 0 && maxPrice > 0) {
       dataCopy = dataCopy.filter(
@@ -39,6 +40,7 @@ function App() {
 
     setProducts(dataCopy);
     setOrder("default");
+    setName("")
   };
 
   function changeScreen(screen) {

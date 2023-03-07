@@ -1,4 +1,3 @@
-import Cart from "../../cart";
 import { Container } from "../../container";
 import {
   Basket,

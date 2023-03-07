@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   display: flex;
-  padding: 40px 0;
   flex: 1 1 66.66%;
 `;
 
