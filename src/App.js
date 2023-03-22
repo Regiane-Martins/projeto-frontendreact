@@ -34,11 +34,11 @@ function App() {
       e.name.toLowerCase().includes(name.toLowerCase())
     );
 
-    if (minPrice >= 0 && maxPrice > 0) {
+    maxPrice = maxPrice === 0 ? Infinity : maxPrice
+
       dataCopy = dataCopy.filter(
         (e) => e.price >= minPrice && e.price <= maxPrice
       );
-    }
 
     setProducts(dataCopy);
     setOrder("default");
