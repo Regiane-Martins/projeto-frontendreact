@@ -88,7 +88,7 @@ function MainHeader(props) {
               onKeyDown={(e) => e.key === "Enter" && setIsOnFilter(true)}
             />
             <a
-              href="#"
+              href="/"
               onClick={(e) => {
                 e.preventDefault();
                 changeScreen("cart");
