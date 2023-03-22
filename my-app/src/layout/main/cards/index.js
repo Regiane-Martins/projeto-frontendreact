@@ -1,8 +1,7 @@
-
 import * as s from "./styled";
 
 function Card(props) {
-  const { name, image, price, id, cartItems, setCartItems, saveCart } = props;
+  const { name, image, price, id, cartItems, setCartItems } = props;
 
   function addItemToCart(props) {
     const { id, name, price, image } = props;
@@ -36,7 +35,6 @@ function Card(props) {
     }
 
     setCartItems(newCart);
-    saveCart(newCart);
   }
 
   return (

@@ -9,7 +9,10 @@ import Cart from "./layout/cart";
 function App() {
   const [category, setCategory] = useState("todos");
   const [isOnFilter, setIsOnFilter] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const stickyValue = localStorage.getItem("shoppingCart");
+    return stickyValue !== null ? JSON.parse(stickyValue) : [];
+  });
   const [isOnOrder, setIsOnOrder] = useState(false);
   const [products, setProducts] = useState(Data);
   const [order, setOrder] = useState("default");
@@ -30,7 +33,6 @@ function App() {
     dataCopy = dataCopy.filter((e) =>
       e.name.toLowerCase().includes(name.toLowerCase())
     );
-    
 
     if (minPrice >= 0 && maxPrice > 0) {
       dataCopy = dataCopy.filter(
@@ -40,7 +42,7 @@ function App() {
 
     setProducts(dataCopy);
     setOrder("default");
-    setName("")
+    setName("");
   };
 
   function changeScreen(screen) {
@@ -80,15 +82,9 @@ function App() {
     setIsOnOrder(false);
   }
 
-  const saveCart = (cartItems) => {
-    localStorage.shoppingCart = JSON.stringify(cartItems);
-  };
-
   useEffect(() => {
-    if (localStorage.shoppingCart) {
-      setCartItems(JSON.parse(localStorage.shoppingCart));
-    }
-  }, []);
+    localStorage.shoppingCart = JSON.stringify(cartItems);
+  }, [cartItems]);
 
   useEffect(() => {
     let totalItems = 0;
@@ -100,8 +96,6 @@ function App() {
     setTotalItemCart(totalItems);
     setTotalCart(totalValue);
   }, [cartItems]);
-
-  /* totalItems > 1 ? "produtos": "produto" */
 
   return (
     <div>
@@ -127,7 +121,6 @@ function App() {
           maxPrice={maxPrice}
           cartItems={cartItems}
           setCartItems={setCartItems}
-          saveCart={saveCart}
         />
       ) : (
         <Cart
@@ -135,7 +128,6 @@ function App() {
           cartItems={cartItems}
           setCartItems={setCartItems}
           totalItemCart={totalItemCart}
-          saveCart={saveCart}
           totalCart={totalCart}
         />
       )}

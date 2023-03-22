@@ -17,7 +17,6 @@ function Main(props) {
     minPrice,
     cartItems,
     setCartItems,
-    saveCart,
   } = props;
 
   return (
@@ -61,7 +60,6 @@ function Main(props) {
                 cartItems={cartItems}
                 setCartItems={setCartItems}
                 products={products}
-                saveCart={saveCart}
               />
             ))}
           </s.DivCard>

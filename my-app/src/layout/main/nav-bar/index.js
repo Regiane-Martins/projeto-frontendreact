@@ -11,6 +11,7 @@ function NavBar(props) {
           <s.SubTitle>Mínimo:</s.SubTitle>
           <s.SubTitle>R$ 0,00</s.SubTitle>
           <s.Input
+            min="0"
             type="number"
             placeholder="R$ 0,00"
             value={minPrice}

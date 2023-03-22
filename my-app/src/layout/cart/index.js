@@ -12,7 +12,6 @@ function Cart(props) {
     setCartItems,
     totalItemCart,
     totalCart,
-    saveCart,
   } = props;
   return (
     <Container>
@@ -22,7 +21,6 @@ function Cart(props) {
           setCart={setCart}
           cartItems={cartItems}
           setCartItems={setCartItems}
-          saveCart={saveCart}
         />
         <Summary
           changeScreen={changeScreen}
