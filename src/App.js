@@ -106,6 +106,7 @@ function App() {
         name={name}
         setName={setName}
         changeScreen={changeScreen}
+        totalItemCart={totalItemCart}
       />
       {screen === "default" ? (
         <Main

@@ -3,7 +3,7 @@ import { HeaderContent } from "./styled";
 import SubHeader from "./sub-header";
 
 function Header(props) {
-  const { setIsOnFilter, category, setCategory, name, setName, changeScreen } =
+  const { setIsOnFilter, category, setCategory, name, setName, changeScreen, totalItemCart } =
     props;
 
   return (
@@ -16,6 +16,7 @@ function Header(props) {
         name={name}
         setName={setName}
         changeScreen={changeScreen}
+        totalItemCart={totalItemCart}
       />
     </HeaderContent>
   );

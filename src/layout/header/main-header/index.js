@@ -1,19 +1,16 @@
 import { Container } from "../../container";
-import {
-  Basket,
-  Link,
-  ItemList,
-  List,
-  LogoIcon,
-  Nav,
-  NavContent,
-  Section,
-  InputShearch,
-} from "./styled";
+import * as s from "./styled";
 
 function MainHeader(props) {
-  const { setIsOnFilter, category, setCategory, name, setName, changeScreen } =
-    props;
+  const {
+    setIsOnFilter,
+    category,
+    setCategory,
+    name,
+    setName,
+    changeScreen,
+    totalItemCart,
+  } = props;
 
   function selectedProducts(value) {
     setCategory(value);
@@ -21,65 +18,65 @@ function MainHeader(props) {
   }
 
   return (
-    <Nav>
+    <s.Nav>
       <Container>
-        <NavContent>
-          <LogoIcon
+        <s.NavContent>
+          <s.LogoIcon
             src={process.env.PUBLIC_URL + "/img/logo-principal.svg"}
             alt="logo Astronauta"
           />
-          <List>
-            <ItemList>
-              <Link
+          <s.List>
+            <s.ItemList>
+              <s.Link
                 active={category === "brinquedos"}
                 onClick={(e) => selectedProducts("brinquedos")}
               >
                 Brinquedos
-              </Link>
-            </ItemList>
-            <ItemList>
-              <Link
+              </s.Link>
+            </s.ItemList>
+            <s.ItemList>
+              <s.Link
                 active={category === "calçados"}
                 onClick={(e) => selectedProducts("calçados")}
               >
                 Calçados
-              </Link>
-            </ItemList>
-            <ItemList>
-              <Link
+              </s.Link>
+            </s.ItemList>
+            <s.ItemList>
+              <s.Link
                 active={category === "diario"}
                 onClick={(e) => selectedProducts("diario")}
               >
                 Dia a Dia
-              </Link>
-            </ItemList>
-            <ItemList>
-              <Link
+              </s.Link>
+            </s.ItemList>
+            <s.ItemList>
+              <s.Link
                 active={category === "escolar"}
                 onClick={(e) => selectedProducts("escolar")}
               >
                 Escolar
-              </Link>
-            </ItemList>
-            <ItemList>
-              <Link
+              </s.Link>
+            </s.ItemList>
+            <s.ItemList>
+              <s.Link
                 active={category === "sono"}
                 onClick={(e) => selectedProducts("sono")}
               >
                 Sono
-              </Link>
-            </ItemList>
-            <ItemList>
-              <Link
+              </s.Link>
+            </s.ItemList>
+            <s.ItemList>
+              <s.Link
                 active={category === "todos"}
                 onClick={(e) => selectedProducts("todos")}
               >
                 Todos
-              </Link>
-            </ItemList>
-          </List>
-          <Section>
-            <InputShearch
+              </s.Link>
+            </s.ItemList>
+          </s.List>
+          <s.Section>
+            <s.InputShearch
               type="text"
               name="name"
               placeholder="Buscar"
@@ -87,22 +84,23 @@ function MainHeader(props) {
               onChange={(e) => setName(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && setIsOnFilter(true)}
             />
-            <a
+            <s.Anchor
               href="/"
               onClick={(e) => {
                 e.preventDefault();
                 changeScreen("cart");
               }}
             >
-              <Basket
+              <s.TotalProducts>{totalItemCart}</s.TotalProducts>
+              <s.Basket
                 src={process.env.PUBLIC_URL + "/img/cart2.svg"}
                 alt="carrinho de compras"
               />
-            </a>
-          </Section>
-        </NavContent>
+            </s.Anchor>
+          </s.Section>
+        </s.NavContent>
       </Container>
-    </Nav>
+    </s.Nav>
   );
 }
 
