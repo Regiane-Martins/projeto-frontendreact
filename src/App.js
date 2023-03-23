@@ -17,8 +17,8 @@ function App() {
   const [products, setProducts] = useState(Data);
   const [order, setOrder] = useState("default");
   const [name, setName] = useState("");
-  const [maxPrice, setMaxPrice] = useState(0);
-  const [minPrice, setMinPrice] = useState(0);
+  let [maxPrice, setMaxPrice] = useState(0);
+  let [minPrice, setMinPrice] = useState(0);
   const [screen, setScreen] = useState("default");
   const [totalItemCart, setTotalItemCart] = useState(0);
   const [totalCart, setTotalCart] = useState(0);
@@ -34,11 +34,11 @@ function App() {
       e.name.toLowerCase().includes(name.toLowerCase())
     );
 
-    maxPrice = maxPrice === 0 ? Infinity : maxPrice
+    maxPrice = maxPrice === 0 ? Infinity : maxPrice;
 
-      dataCopy = dataCopy.filter(
-        (e) => e.price >= minPrice && e.price <= maxPrice
-      );
+    dataCopy = dataCopy.filter(
+      (e) => e.price >= minPrice && e.price <= maxPrice
+    );
 
     setProducts(dataCopy);
     setOrder("default");
