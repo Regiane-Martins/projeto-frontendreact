@@ -61,19 +61,20 @@ export const Section = styled.div`
 `;
 
 export const Anchor = styled.a`
-text-decoration: none;
-`
+  text-decoration: none;
+`;
+
+export const Div = styled.div`
+  position: relative;
+`;
 
 export const TotalProducts = styled.p`
-  background-color: #cecece;
-  border-radius: 50%;
   color: #000;
-  display: flex;
   font-size: 0.85rem;
-  justify-content: center;
-  align-items: center;
+  left: 25px;
   padding: 0.3rem;
-  
+  position: absolute;
+  top: -5px;
 `;
 
 export const Basket = styled.img`

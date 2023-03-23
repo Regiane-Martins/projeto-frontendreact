@@ -91,11 +91,15 @@ function MainHeader(props) {
                 changeScreen("cart");
               }}
             >
-              <s.TotalProducts>{totalItemCart}</s.TotalProducts>
-              <s.Basket
-                src={process.env.PUBLIC_URL + "/img/cart2.svg"}
-                alt="carrinho de compras"
-              />
+              <s.Div>
+                <s.TotalProducts>
+                  {totalItemCart > 1 ? `${totalItemCart}` : ""}
+                </s.TotalProducts>
+                <s.Basket
+                  src={process.env.PUBLIC_URL + "/img/cart2.svg"}
+                  alt="carrinho de compras"
+                />
+              </s.Div>
             </s.Anchor>
           </s.Section>
         </s.NavContent>
