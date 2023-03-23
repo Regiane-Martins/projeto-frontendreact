@@ -93,7 +93,7 @@ function MainHeader(props) {
             >
               <s.Div>
                 <s.TotalProducts>
-                  {totalItemCart > 1 ? `${totalItemCart}` : ""}
+                  {totalItemCart >= 1 ? `${totalItemCart}` : ""}
                 </s.TotalProducts>
                 <s.Basket
                   src={process.env.PUBLIC_URL + "/img/cart2.svg"}
