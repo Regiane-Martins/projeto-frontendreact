@@ -8,7 +8,7 @@ function Header(props) {
 
   return (
     <HeaderContent>
-      <SubHeader />
+      <SubHeader changeScreen={changeScreen} />
       <MainHeader
         category={category}
         setCategory={setCategory}

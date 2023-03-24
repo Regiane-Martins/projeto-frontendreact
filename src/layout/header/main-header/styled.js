@@ -5,6 +5,7 @@ export const Nav = styled.nav`
 `;
 
 export const LogoIcon = styled.img`
+  cursor: pointer;
   height: auto;
   width: 110px;
 `;

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Cart from "./layout/cart";
 import ConfirmationPage from "./layout/confirmation-page";
+import EmptyCart from "./layout/empty-cart";
 
 function App() {
   const [category, setCategory] = useState("todos");
@@ -133,9 +134,9 @@ function App() {
           totalItemCart={totalItemCart}
           totalCart={totalCart}
         />
-      ):(
-        <ConfirmationPage changeScreen={changeScreen} />
-      )
+      ): screen === "confirmation" ? (
+        <ConfirmationPage changeScreen={changeScreen}/>
+      ): <EmptyCart changeScreen={changeScreen}/>
     }
      <Footer />
     </>

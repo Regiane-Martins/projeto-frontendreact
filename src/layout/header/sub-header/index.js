@@ -1,12 +1,17 @@
 import { Container } from "../../container";
 import { ItemList, Links, List, LogoIcon, Nav, NavContent } from "./styled";
 
-function SubHeader() {
+function SubHeader(props) {
+  const { changeScreen } = props;
   return (
     <Nav>
       <Container>
         <NavContent>
-        <LogoIcon
+          <LogoIcon
+            onClick={(e) => {
+              e.preventDefault();
+              changeScreen("default");
+            }}
             src={process.env.PUBLIC_URL + "/img/logo2.svg"}
             alt="logo Astronauta"
           />

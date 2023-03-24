@@ -27,6 +27,7 @@ export const SubTitlePrice = styled.p``
 export const Button = styled.button`
   background-color: #696969;
   border: 1px solid #cecece;
+  border-radius: 5px;
   color: #fff;
   margin-bottom: 10px;
   text-transform: lowercase;

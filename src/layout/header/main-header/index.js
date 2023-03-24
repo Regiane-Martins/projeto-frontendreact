@@ -21,7 +21,10 @@ function MainHeader(props) {
     <s.Nav>
       <Container>
         <s.NavContent>
-          <s.LogoIcon
+          <s.LogoIcon onClick={(e) => {
+                e.preventDefault();
+                changeScreen("default");
+              }}
             src={process.env.PUBLIC_URL + "/img/logo-principal.svg"}
             alt="logo Astronauta"
           />

@@ -12,6 +12,7 @@ export const NavContent = styled.div`
 `;
 
 export const LogoIcon = styled.img`
+cursor: pointer;
   height: auto;
   width: 70px;
 `;

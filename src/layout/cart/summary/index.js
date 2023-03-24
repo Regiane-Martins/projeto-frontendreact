@@ -1,8 +1,8 @@
 import * as s from "./styled";
-import ConfirmationPage from "../../confirmation-page";
+
 
 function Summary(props) {
-  const { changeScreen, totalItemCart, totalCart  } = props;
+  const { changeScreen, totalItemCart, totalCart, cartItems  } = props;
 
   return (
     <s.Section>
@@ -18,7 +18,9 @@ function Summary(props) {
           <s.Total>R$ {totalCart},00</s.Total>
         </s.ContentPrice>
         <s.Separator />
-        <s.Button onClick={(e)=>changeScreen("confirmation")}>Concluir pedido</s.Button>
+        {cartItems.length > 0 ? <s.Button onClick={
+          (e)=>changeScreen("confirmation")}>Concluir pedido</s.Button> : changeScreen('vazio')}
+        {/* <s.Button onClick={(e)=>changeScreen("confirmation")}>Concluir pedido</s.Button> */}
         <s.Link
           href="#"
           onClick={(e) => {
