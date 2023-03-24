@@ -10,6 +10,7 @@ function Cart(props) {
     changeScreen,
     cartItems,
     setCartItems,
+    screen,
     totalItemCart,
     totalCart,
   } = props;
@@ -24,6 +25,7 @@ function Cart(props) {
         />
         <Summary
           changeScreen={changeScreen}
+          screen={screen}
           totalItemCart={totalItemCart}
           totalCart={totalCart}
         />

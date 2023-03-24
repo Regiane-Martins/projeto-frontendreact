@@ -5,6 +5,7 @@ import { Data } from "./data";
 import { useState } from "react";
 import { useEffect } from "react";
 import Cart from "./layout/cart";
+import ConfirmationPage from "./layout/confirmation-page";
 
 function App() {
   const [category, setCategory] = useState("todos");
@@ -98,7 +99,7 @@ function App() {
   }, [cartItems]);
 
   return (
-    <div>
+    <>
       <Header
         setIsOnFilter={setIsOnFilter}
         category={category}
@@ -106,9 +107,9 @@ function App() {
         name={name}
         setName={setName}
         changeScreen={changeScreen}
-        totalItemCart={totalItemCart}
-      />
-      {screen === "default" ? (
+        totalItemCart={totalItemCart}/>
+    
+      { screen === "default" ? (
         <Main
           products={products}
           setIsOnOrder={setIsOnOrder}
@@ -123,17 +124,21 @@ function App() {
           cartItems={cartItems}
           setCartItems={setCartItems}
         />
-      ) : (
+      ) : screen==="cart"? (
         <Cart
           changeScreen={changeScreen}
+          screen={screen}
           cartItems={cartItems}
           setCartItems={setCartItems}
           totalItemCart={totalItemCart}
           totalCart={totalCart}
         />
-      )}
-      <Footer />
-    </div>
+      ):(
+        <ConfirmationPage changeScreen={changeScreen} />
+      )
+    }
+     <Footer />
+    </>
   );
 }
 
