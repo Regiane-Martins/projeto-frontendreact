@@ -29,6 +29,7 @@ function Cart(props) {
           totalItemCart={totalItemCart}
           totalCart={totalCart}
           cartItems={cartItems}
+          setCartItems={setCartItems}
         />
       </s.SectionContainer>
     </Container>

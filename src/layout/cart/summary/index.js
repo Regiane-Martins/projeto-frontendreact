@@ -1,15 +1,19 @@
 import * as s from "./styled";
 
-
 function Summary(props) {
-  const { changeScreen, totalItemCart, totalCart, cartItems  } = props;
+  const { changeScreen, totalItemCart, totalCart, cartItems, setCartItems } =
+    props;
 
   return (
     <s.Section>
       <s.Aside>
         <s.Title>resumo do pedido</s.Title>
         <s.ContentPrice>
-          <s.SubTitle>{totalItemCart > 1 ? `${totalItemCart} produtos`: `${totalItemCart} produto` }</s.SubTitle>
+          <s.SubTitle>
+            {totalItemCart > 1
+              ? `${totalItemCart} produtos`
+              : `${totalItemCart} produto`}
+          </s.SubTitle>
           <s.SubTitle>R$ {totalCart},00</s.SubTitle>
         </s.ContentPrice>
         <s.Separator />
@@ -18,9 +22,18 @@ function Summary(props) {
           <s.Total>R$ {totalCart},00</s.Total>
         </s.ContentPrice>
         <s.Separator />
-        {cartItems.length > 0 ? <s.Button onClick={
-          (e)=>changeScreen("confirmation")}>Concluir pedido</s.Button> : changeScreen('vazio')}
-        {/* <s.Button onClick={(e)=>changeScreen("confirmation")}>Concluir pedido</s.Button> */}
+        {cartItems.length > 0 ? (
+          <s.Button
+            onClick={(e) => {
+              changeScreen("confirmation");
+              setCartItems([]);
+            }}
+          >
+            Concluir pedido
+          </s.Button>
+        ) : (
+          changeScreen("vazio")
+        )}
         <s.Link
           href="#"
           onClick={(e) => {

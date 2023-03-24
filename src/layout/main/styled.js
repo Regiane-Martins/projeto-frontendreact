@@ -30,13 +30,13 @@ export const Paragraph = styled.p`
   padding-bottom: 20px;
 `;
 
-export const Div = styled.div``;
+export const Div = styled.div``
 
 export const Content = styled.div``;
 
 export const DivCard = styled.div`
   display: grid;
   gap: 20px 15px;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   padding-left: 20px;
 `;
